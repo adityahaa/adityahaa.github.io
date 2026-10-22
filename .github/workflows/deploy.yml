@@ -1,0 +1,38 @@
+name: Deploy reviewed portfolio
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://adityahaa.github.io/
+    steps:
+      - uses: actions/checkout@v7
+      - name: Verify and extract approved source
+        run: |
+          echo "ca44de13e7cc0deb429f1a46a4974a6f6bf8fe06e86333b334d42730c46a187c  aditya-hambire-portfolio-source.zip" | sha256sum --check
+          unzip -q aditya-hambire-portfolio-source.zip
+      - name: Check, build, audit and upload
+        uses: withastro/action@v6
+        with:
+          path: portfolio
+          node-version: 24
+          package-manager: pnpm@11.25.0
+          build-cmd: pnpm run check && pnpm run build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy static output
+        id: deployment
+        uses: actions/deploy-pages@v5
