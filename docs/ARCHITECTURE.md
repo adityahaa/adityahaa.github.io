@@ -6,7 +6,7 @@ The reviewed ZIP contains an Astro/TypeScript project under portfolio/. JSON con
 
 ## Existing repository deployment
 
-Use the existing repository, not the archived DEPLOYMENT.md instructions to create a new one. .github/workflows/deploy.yml is manually dispatched. It verifies SHA-256 632f11a614ee42b9515c44bb508af50b686459fdc74bae35f0776f55c30a76ab for the source ZIP, extracts portfolio/, uses the declared Node/pnpm toolchain, checks/builds/audits the site, uploads the output, and deploys through GitHub Pages. The workflow sets SITE_URL to https://adityahaa.github.io/.
+Use the existing repository, not the archived DEPLOYMENT.md instructions to create a new one. .github/workflows/deploy.yml is manually dispatched. It verifies SHA-256 38db2dfcf26d06baacee5fcbde18d42b5c281c92f7356dd5051748139edd95e9 for the source ZIP, extracts portfolio/, uses the declared Node/pnpm toolchain, checks/builds/audits the site, uploads the output, and deploys through GitHub Pages. The workflow sets SITE_URL to https://adityahaa.github.io/.
 
 For a future source change, edit the extracted project, run check/build, review all altered public assets, repack the archive without dependencies/private files, and update the workflow checksum in the same commit. Configure Pages to use GitHub Actions and manually run the existing workflow when deployment is intended. This documentation-only review does not dispatch a deployment or replace the source archive.
 
@@ -25,3 +25,13 @@ Replaced the old RAG Document Chatbot entry with DecisionLens, retaining the exi
 URL. Updated local-runtime status, retrieval methods, comparison/review/export workflow, recorded
 pilot results, AI-assisted development disclosure and limitations. No live DecisionLens app is
 deployed. Astro check passed without diagnostics; static build and public/build asset audits pass.
+
+
+## Application-focused portfolio scope — 2026-11-06
+
+At the owner's request, the DecisionLens entry now presents the completed local application.
+Paper status, research-pilot metrics and the research-results link were removed from the
+portfolio entry. Existing research artifacts remain in the application repository; no claim
+that research is complete or published was added. The documented application workflow and
+19-test verification are retained, alongside relevant input and evidence-review limitations.
+Build, Astro diagnostics and both asset audits passed. No DecisionLens app hosting is enabled.
