@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: Verify and extract approved source
         run: |
-          echo "17df793ebcab2997aaf7662d1df5b709ecf13e505c82ccb665918c2c00fc2aa6  aditya-hambire-portfolio-source.zip" | sha256sum --check
+          echo "4ab3760a56adbecb17e5debbd0037a58a0a7cd526beef0dd84b26a370a3730c4  aditya-hambire-portfolio-source.zip" | sha256sum --check
           unzip -q aditya-hambire-portfolio-source.zip
       - name: Check, build, audit and upload
         uses: withastro/action@v6
